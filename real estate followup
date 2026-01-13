@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Follow-Up App</title>
+</head>
+<body>
+    <h1>Welcome to Your Follow-Up App</h1>
+    <a href="signup.html">Sign Up</a> | <a href="login.html">Login</a>
+</body>
+</html>
