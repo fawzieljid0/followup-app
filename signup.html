@@ -7,3 +7,28 @@
 </form>
 <a href="login.html">Already have an account? Login</a>
 <link rel="stylesheet" type="text/css" href="static/style.css">
+<script>
+async function signup(event) {
+    event.preventDefault();
+    
+    const name = document.querySelector('input[name="name"]').value;
+    const email = document.querySelector('input[name="email"]').value;
+    const password = document.querySelector('input[name="password"]').value;
+
+    const res = await fetch('database.json').then(r => r.json());
+
+    const users = res.users;
+    
+    if(users.find(u => u.email === email)){
+        alert("Email already registered!");
+        return;
+    }
+
+    users.push({name, email, password});
+    // Save users back to database.json (in real App this requires server, here we simulate)
+    alert("User registered! Now you can login.");
+    window.location.href = 'login.html';
+}
+
+document.getElementById('signupForm').addEventListener('submit', signup);
+</script>
